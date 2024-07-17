@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Type</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #C4DFE6;
+        }
+
+        #selection-box {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #66A5AD;
+            text-align: center;
+        }
+
+        #selection-box h2 {
+            margin-top: 0;
+        }
+
+        #selection-box button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #selection-box button:hover {
+            background-color: #0056b3;
+        }
+
+        #selection-box a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #selection-box a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+        img{
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="selection-box">
+        <img src="{% static 'kpm1.png' %}" alt="Logo">
+        <h2>Student Intervention Online System</h2>
+        <p style="font-size: 12px;color: white;">Choose Your Account Type:</p>
+        <a href="{% url 'Login_student' %}"><p style="color: blue;">Student</p></a>
+        <a href="{% url 'Login_Lecturer' %}"><p style="color: blue;">Lecturer</p></a>
+    </div>
+
+</body>
+
+</html>

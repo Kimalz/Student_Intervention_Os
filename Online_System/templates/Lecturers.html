@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #C4DFE6;
+        }
+
+        nav {
+            background-color: #00246B;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        #selection-box {
+            width: 80%;
+            max-width: 500px; /* Adjusted max-width */
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #66A5AD;
+            text-align: center;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            display: flex; /* Added */
+            flex-direction: column; /* Added */
+            justify-content: center; /* Added */
+            align-items: center; /* Added */
+        }
+
+        #selection-box h2 {
+            margin: 0;
+            color: white;
+        }
+
+        #selection-box form {
+            margin-top: 20px;
+            width: 100%; /* Added */
+            max-width: 400px; /* Adjusted max-width */
+        }
+
+        #selection-box label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+            text-align: left; /* Adjusted alignment */
+            width: 100%; /* Added */
+        }
+
+        #selection-box input[type="text"],
+        #selection-box textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        #selection-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #selection-box button:hover {
+            background-color: #0056b3;
+        }
+
+        #selection-box a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #selection-box a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="{% static 'kpm1.png' %}" alt="Logo">
+        <a href="{% url 'Account_Type' %}" style="margin-right: 30px; color: white;">Log Out</a>
+    </nav>
+
+    <div id="selection-box">
+        <h2>Student Intervention Online System</h2>
+        <form action="Lecturers" method="POST">
+            {% csrf_token %}
+            <label for="lecturerid">Lecturer ID:</label>
+            <input type="text" name="lecturerid">
+
+            <label for="studentid">Student ID:</label>
+            <input type="text" name="studentid">
+
+            <label for="mentorid">Mentor ID:</label>
+            <input type="text" name="mentorid">
+
+            <label for="date">date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" value="in process" readonly>
+
+            <label for="report">report :</label>
+            <textarea id="report" name="report" rows="4" required></textarea>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
